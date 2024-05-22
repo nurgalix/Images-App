@@ -7,23 +7,19 @@
 
 import UIKit
 
-class ImageDetailViewController: UIViewController {
-
+final class ImageDetailViewController: UIViewController {
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var exitButton: UIButton!
+    
+    var img: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.imageView.sd_setImage(with: URL(string: img!))
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func buttonTapped(_ sender: UIButton) {
     }
-    */
-
 }
