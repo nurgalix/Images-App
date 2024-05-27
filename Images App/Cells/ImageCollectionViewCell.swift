@@ -6,8 +6,7 @@
 //
 
 import UIKit
-import SDWebImage
-
+import Kingfisher
 
 final class ImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imagesView: UIImageView!
@@ -15,12 +14,12 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         imagesView.layer.cornerRadius = 20
     }
     
     func configure(with name: String, image: String) {
         imageNameLabel.text = name
-        self.imagesView.sd_setImage(with: URL(string: image))
+        let url = URL(string: image)
+        imagesView.kf.setImage(with: url)
     }
 }
