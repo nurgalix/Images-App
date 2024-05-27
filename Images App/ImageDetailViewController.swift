@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class ImageDetailViewController: UIViewController {
     
@@ -16,8 +17,13 @@ final class ImageDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.imageView.sd_setImage(with: URL(string: img!))
+        
+        if let img = img, let url = URL(string: img) {
+            imageView.kf.setImage(with: url)
+        } else {
+            print("Invalid image URL")
+                self.imageView.image = nil 
+            }
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {

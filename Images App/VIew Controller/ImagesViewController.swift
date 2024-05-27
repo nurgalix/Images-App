@@ -24,16 +24,31 @@ final class ImagesViewController: UIViewController {
         collectionView.delegate = self
         
         imageManager.delegate = self
-        imageManager.performRequest()
+        fetchImages()
         
         refreshControl.addTarget(self, action: #selector(didPullToRefresh(_:)), for: .valueChanged)
         collectionView.alwaysBounceVertical = true
         collectionView.refreshControl = refreshControl
     }
     
+    func fetchImages() {
+        do {
+            try imageManager.performRequest()
+        } catch {
+            print("Failed to start request: \(error)")
+            showAlert(for: error)
+        }
+    }
+    
+    private func showAlert(for error: Error) {
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @objc
     private func didPullToRefresh(_ sender: Any) {
-        imageManager.performRequest()
+        fetchImages()
     }
     
     //MARK: Search Handler
@@ -56,7 +71,7 @@ final class ImagesViewController: UIViewController {
         if segue.identifier == "showDetail" {
             if let indexPath = collectionView.indexPathsForSelectedItems {
                 let destinationController = segue.destination as! ImageDetailViewController
-                destinationController.img = imgs[indexPath[0].row].thumbnailUrl
+                destinationController.img = imgs[indexPath[0].row].url
                 collectionView.deselectItem(at: indexPath[0], animated: false)
             }
         }
@@ -76,7 +91,7 @@ extension ImagesViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
         
-        cell.configure(with: imgs[indexPath.row].title, image: imgs[indexPath.row].url)
+        cell.configure(with: imgs[indexPath.row].title, image: imgs[indexPath.row].thumbnailUrl)
         
         return cell
     }
@@ -86,7 +101,7 @@ extension ImagesViewController: UICollectionViewDataSource, UICollectionViewDele
 extension ImagesViewController: ImageManagerDelegate {
     
     func didFetchImages(_ images: [Image]) {
-        print("chotam")
+//        print("chotam")
         listOfImages = images
         imgs = images
         collectionView.reloadData()
@@ -95,6 +110,7 @@ extension ImagesViewController: ImageManagerDelegate {
     
     func didFailWithError(_ error: Error) {
         refreshControl.endRefreshing()
+        showAlert(for: error)
         print(error)
     }
 }

@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC27F6352C04F83700967C94 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DC27F6342C04F83700967C94 /* Kingfisher */; };
+		DC27F6382C0500E200967C94 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27F6372C0500E200967C94 /* ImageCollectionViewCell.swift */; };
 		DCC39F252BFCA8A300A27142 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC39F242BFCA8A300A27142 /* AppDelegate.swift */; };
 		DCC39F272BFCA8A300A27142 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC39F262BFCA8A300A27142 /* SceneDelegate.swift */; };
 		DCC39F2C2BFCA8A300A27142 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCC39F2A2BFCA8A300A27142 /* Main.storyboard */; };
 		DCC39F2E2BFCA8A500A27142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCC39F2D2BFCA8A500A27142 /* Assets.xcassets */; };
 		DCC39F312BFCA8A500A27142 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCC39F2F2BFCA8A500A27142 /* LaunchScreen.storyboard */; };
-		DCC39F3B2BFCAA5700A27142 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC39F3A2BFCAA5700A27142 /* ImageCollectionViewCell.swift */; };
 		DCC39F3D2BFCB48D00A27142 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC39F3C2BFCB48D00A27142 /* ImageModel.swift */; };
 		DCC39F3F2BFCB4AA00A27142 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC39F3E2BFCB4AA00A27142 /* ImageManager.swift */; };
-		DCC39F422BFCB5FA00A27142 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = DCC39F412BFCB5FA00A27142 /* SDWebImage */; };
-		DCC39F442BFCB5FA00A27142 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DCC39F432BFCB5FA00A27142 /* SDWebImageMapKit */; };
 		DCC39F462BFCB6F600A27142 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC39F452BFCB6F600A27142 /* ImageDetailViewController.swift */; };
 		DCC39F482BFCCE7900A27142 /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC39F472BFCCE7900A27142 /* ImagesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC27F6372C0500E200967C94 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		DCC39F212BFCA8A300A27142 /* Images App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Images App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC39F242BFCA8A300A27142 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCC39F262BFCA8A300A27142 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,7 +29,6 @@
 		DCC39F2D2BFCA8A500A27142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCC39F302BFCA8A500A27142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCC39F322BFCA8A500A27142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DCC39F3A2BFCAA5700A27142 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageCollectionViewCell.swift; path = ../ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		DCC39F3C2BFCB48D00A27142 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		DCC39F3E2BFCB4AA00A27142 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		DCC39F452BFCB6F600A27142 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageDetailViewController.swift; path = ../ImageDetailViewController.swift; sourceTree = "<group>"; };
@@ -41,14 +40,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCC39F442BFCB5FA00A27142 /* SDWebImageMapKit in Frameworks */,
-				DCC39F422BFCB5FA00A27142 /* SDWebImage in Frameworks */,
+				DC27F6352C04F83700967C94 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC27F6362C0500D000967C94 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DC27F6372C0500E200967C94 /* ImageCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		DCC39F182BFCA8A300A27142 = {
 			isa = PBXGroup;
 			children = (
@@ -68,11 +74,11 @@
 		DCC39F232BFCA8A300A27142 /* Images App */ = {
 			isa = PBXGroup;
 			children = (
+				DC27F6362C0500D000967C94 /* Cells */,
 				DCE37E492BFDF752009C5556 /* Network */,
 				DCE37E482BFDF74C009C5556 /* Models */,
 				DCE37E472BFDF73B009C5556 /* Supporting files */,
 				DCC39F492BFCCFA000A27142 /* VIew Controller */,
-				DCC39F4A2BFDF61F00A27142 /* Cells */,
 				DCC39F322BFCA8A500A27142 /* Info.plist */,
 			);
 			path = "Images App";
@@ -86,14 +92,6 @@
 				DCC39F452BFCB6F600A27142 /* ImageDetailViewController.swift */,
 			);
 			path = "VIew Controller";
-			sourceTree = "<group>";
-		};
-		DCC39F4A2BFDF61F00A27142 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				DCC39F3A2BFCAA5700A27142 /* ImageCollectionViewCell.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		DCE37E472BFDF73B009C5556 /* Supporting files */ = {
@@ -140,8 +138,7 @@
 			);
 			name = "Images App";
 			packageProductDependencies = (
-				DCC39F412BFCB5FA00A27142 /* SDWebImage */,
-				DCC39F432BFCB5FA00A27142 /* SDWebImageMapKit */,
+				DC27F6342C04F83700967C94 /* Kingfisher */,
 			);
 			productName = "Images App";
 			productReference = DCC39F212BFCA8A300A27142 /* Images App.app */;
@@ -172,7 +169,7 @@
 			);
 			mainGroup = DCC39F182BFCA8A300A27142;
 			packageReferences = (
-				DCC39F402BFCB5FA00A27142 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				DC27F6332C04F83700967C94 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = DCC39F222BFCA8A300A27142 /* Products */;
 			projectDirPath = "";
@@ -204,9 +201,9 @@
 				DCC39F252BFCA8A300A27142 /* AppDelegate.swift in Sources */,
 				DCC39F3D2BFCB48D00A27142 /* ImageModel.swift in Sources */,
 				DCC39F482BFCCE7900A27142 /* ImagesViewController.swift in Sources */,
+				DC27F6382C0500E200967C94 /* ImageCollectionViewCell.swift in Sources */,
 				DCC39F462BFCB6F600A27142 /* ImageDetailViewController.swift in Sources */,
 				DCC39F3F2BFCB4AA00A27142 /* ImageManager.swift in Sources */,
-				DCC39F3B2BFCAA5700A27142 /* ImageCollectionViewCell.swift in Sources */,
 				DCC39F272BFCA8A300A27142 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,26 +427,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DCC39F402BFCB5FA00A27142 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+		DC27F6332C04F83700967C94 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.19.2;
+				minimumVersion = 7.11.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DCC39F412BFCB5FA00A27142 /* SDWebImage */ = {
+		DC27F6342C04F83700967C94 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DCC39F402BFCB5FA00A27142 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-		DCC39F432BFCB5FA00A27142 /* SDWebImageMapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DCC39F402BFCB5FA00A27142 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImageMapKit;
+			package = DC27F6332C04F83700967C94 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

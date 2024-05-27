@@ -12,37 +12,59 @@ protocol ImageManagerDelegate {
     func didFailWithError(_ error: Error)
 }
 
+enum NetworkError: Error {
+    case invalidURL
+    case requestFailed(Error)
+    case dataParsingFailed(Error)
+}
+
+
 struct ImageManager {
     private let urlString = "https://jsonplaceholder.typicode.com/photos"
     
     var delegate: ImageManagerDelegate?
     
-    func performRequest() {
+    func performRequest() throws {
         guard let url = URL(string: urlString) else {
-            // TODO: Make throwable
-            return
+            throw NetworkError.invalidURL
         }
+        
+        
         URLSession.shared.dataTask(with: url) { data, response, error in
-            print(error)
+            if let error = error {
+                DispatchQueue.main.async {
+                    self.delegate?.didFailWithError(NetworkError.requestFailed(error))
+                }
+                return
+            }
             
-            if let data,
-               let images = self.parseJSON(from: data) {
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    self.delegate?.didFailWithError(NetworkError.requestFailed(NSError(domain: "No data", code: -1, userInfo: nil)))
+                }
+                return
+            }
+            
+            do {
+                let images = try self.parseJSON(from: data)
                 DispatchQueue.main.async {
                     self.delegate?.didFetchImages(images)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.delegate?.didFailWithError(error)
                 }
             }
         }.resume()
     }
     
-    func parseJSON(from imageData: Data) -> [Image]? {
+    func parseJSON(from imageData: Data) throws -> [Image] {
         let decoder = JSONDecoder()
         do {
             let images = try decoder.decode([Image].self, from: imageData)
             return images
         } catch {
-            // TODO: Handle error properly
-            print(error)
-            return nil
+            throw NetworkError.dataParsingFailed(error)
         }
     }
 }
